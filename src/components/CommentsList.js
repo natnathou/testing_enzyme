@@ -1,11 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 export const _CommentsList = ({ comments }) => {
-  const mapCommentsList = () => {
+  const mapCommentsList = () =>
     comments.map((commentUnit, index) => {
-      <div key={index}>{commentUnit}</div>;
+      return <div key={index}>{commentUnit}</div>;
     });
-  };
 
   return <div>{mapCommentsList()}</div>;
 };
@@ -15,6 +15,4 @@ const mapStateToProps = (state) => {
   return { comments };
 };
 
-export const CommentsList = connect(mapStateToProps, {
-  addCommentAction,
-})(_CommentsList);
+export const CommentsList = connect(mapStateToProps)(_CommentsList);

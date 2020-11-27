@@ -29,12 +29,9 @@ const _CommentBox = ({ addCommentAction }) => {
   );
 };
 
-export const CommentBox = connect(
-  {},
-  {
-    addCommentAction,
-  }
-)(_CommentBox);
+export const CommentBox = connect(() => {}, {
+  addCommentAction,
+})(_CommentBox);
 
 // export class CommentBox extends React.Component {
 //   state = {

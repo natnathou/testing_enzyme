@@ -5,8 +5,8 @@ import { CommentBox } from './CommentBox';
 export const App = () => {
   return (
     <div>
-      <CommentsList />
       <CommentBox />
+      <CommentsList />
     </div>
   );
 };
