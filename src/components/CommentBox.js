@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
+import { addCommentAction } from '../actions/actions';
+import { connect } from 'react-redux';
 
-export const CommentBox = () => {
+const _CommentBox = ({ comments, addCommentAction }) => {
   const [comment, setComment] = useState('');
 
   const handleChange = (event) => {
     setComment(event.target.value);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await addCommentAction(comment);
+    setComment('');
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <textarea onChange={handleChange} value={comment}></textarea>
         </div>
@@ -20,6 +28,15 @@ export const CommentBox = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  let { comments } = state;
+  return { comments };
+};
+
+export const CommentBox = connect(mapStateToProps, {
+  addCommentAction,
+})(_CommentBox);
 
 // export class CommentBox extends React.Component {
 //   state = {
