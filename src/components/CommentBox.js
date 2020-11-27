@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addCommentAction } from '../actions/actions';
 import { connect } from 'react-redux';
 
-const _CommentBox = ({ comments, addCommentAction }) => {
+const _CommentBox = ({ addCommentAction }) => {
   const [comment, setComment] = useState('');
 
   const handleChange = (event) => {
@@ -29,14 +29,12 @@ const _CommentBox = ({ comments, addCommentAction }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  let { comments } = state;
-  return { comments };
-};
-
-export const CommentBox = connect(mapStateToProps, {
-  addCommentAction,
-})(_CommentBox);
+export const CommentBox = connect(
+  {},
+  {
+    addCommentAction,
+  }
+)(_CommentBox);
 
 // export class CommentBox extends React.Component {
 //   state = {
