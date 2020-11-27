@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { App } from 'components/App';
 import { CommentBox } from 'components/CommentBox';
-import { CommentList } from 'components/CommentsList';
+import { CommentsList } from 'components/CommentsList';
 
 let wrapper;
 
@@ -16,5 +15,5 @@ it('show comment box', () => {
 });
 
 it('show comment list', () => {
-  expect(wrapper.find(CommentList).length).toEqual(1);
+  expect(wrapper.find(CommentsList).length).toEqual(1);
 });

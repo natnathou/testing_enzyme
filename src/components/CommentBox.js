@@ -29,7 +29,7 @@ const _CommentBox = ({ addCommentAction }) => {
   );
 };
 
-export const CommentBox = connect(() => {}, {
+export const CommentBox = connect(null, {
   addCommentAction,
 })(_CommentBox);
 
